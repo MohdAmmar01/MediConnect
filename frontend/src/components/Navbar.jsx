@@ -18,7 +18,8 @@ function Navbar({ currentPage }) {
   const [showList, setShowList] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-const users=useSelector((state)=>state.users);
+  const users = useSelector((state) => state.users);
+
   const logouthandler = async () => {
     try {
       const res = await axios.post('https://medi-connect-backend-beno.onrender.com/api/users/logout');
@@ -56,62 +57,54 @@ const users=useSelector((state)=>state.users);
         />
         <p className="menu">Main Menu</p>
 
-        <div className="item">
+        <div className="item" onClick={() => navigate("/")}>
           <CiMedicalCase className="logo_item" />
-          <a
-            href="/"
+          <h3
             style={currentPage === "home" ? { color: "#240f6a" } : { color: "#8c6df7" }}
             className="item_name"
           >
             Home
-          </a>
+          </h3>
         </div>
-        {
-          users?.isloggedin &&
-        <div className="item">
-          <SlCalender className="logo_item" />
-          <a
-            href="/my-appointments"
-            style={currentPage === "my-appointments" ? { color: "#240f6a" } : { color: "#8c6df7" }}
-            className="item_name"
-          >
-            My Appointments
-          </a>
-        </div>
-}
-        {
-          users?.isloggedin &&
-        <div className="item">
-          <BsChatLeftDots className="logo_item" />
-          <a
-            href="/chats"
-            style={currentPage === "chats" ? { color: "#240f6a" } : { color: "#8c6df7" }}
-            className="item_name"
-          >
-            My Chats
-          </a>
-        </div>
-}
-        {
-          users?.isloggedin &&
-        <div className="item">
-          <CiUser className="logo_item" />
-          <a
-            href="/profile"
-            style={currentPage === "profile" ? { color: "#240f6a" } : { color: "#8c6df7" }}
-            className="item_name"
-          >
-            My Profile
-          </a>
-        </div>
-}
-        {
-          users?.isloggedin &&
-        <div className="item" onClick={logouthandler}>
-          <CiLogout className="logo_item" />
-          <h3 style={{ color: "#8c6df7" }} className="item_name">Logout</h3>
-        </div>
-}
+        {users?.isloggedin && (
+          <div className="item" onClick={() => navigate("/my-appointments")}>
+            <SlCalender className="logo_item" />
+            <h3
+              style={currentPage === "my-appointments" ? { color: "#240f6a" } : { color: "#8c6df7" }}
+              className="item_name"
+            >
+              My Appointments
+            </h3>
+          </div>
+        )}
+        {users?.isloggedin && (
+          <div className="item" onClick={() => navigate("/chats")}>
+            <BsChatLeftDots className="logo_item" />
+            <h3
+              style={currentPage === "chats" ? { color: "#240f6a" } : { color: "#8c6df7" }}
+              className="item_name"
+            >
+              My Chats
+            </h3>
+          </div>
+        )}
+        {users?.isloggedin && (
+          <div className="item" onClick={() => navigate("/profile")}>
+            <CiUser className="logo_item" />
+            <h3
+              style={currentPage === "profile" ? { color: "#240f6a" } : { color: "#8c6df7" }}
+              className="item_name"
+            >
+              My Profile
+            </h3>
+          </div>
+        )}
+        {users?.isloggedin && (
+          <div className="item" onClick={logouthandler}>
+            <CiLogout className="logo_item" />
+            <h3 style={{ color: "#8c6df7" }} className="item_name">Logout</h3>
+          </div>
+        )}
       </div>
       <Toaster position="bottom-center" />
     </div>
