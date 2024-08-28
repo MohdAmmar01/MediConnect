@@ -25,7 +25,7 @@ const RegisterPage = () => {
       }
       setLoading(true)
 
-      const response = await axios.post('https://medi-connect-backend.onrender.com/api/users/register', { name, email, password, isDoctor, appointmentFee, specialisation });
+      const response = await axios.post('https://medi-connect-backend-beno.onrender.com/api/users/register', { name, email, password, isDoctor, appointmentFee, specialisation });
       if (response.data.success == true) {
         toast.success("Congratulations! 🎉 Your Registration is Complete. Verify Your Email to Unlock Your MediConnect Account 📬", { position: 'top-center' })
         setLoading(false)

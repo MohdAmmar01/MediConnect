@@ -20,7 +20,7 @@ const ResetPasswordPage = () => {
   const handleResetPassword = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://medi-connect-backend.onrender.com/api/users/resetpassword', { email, code, newPassword });
+      const response = await axios.post('https://medi-connect-backend-beno.onrender.com/api/users/resetpassword', { email, code, newPassword });
       setMessage(response.data.message);
     } catch (error) {
       setMessage(error.response.data.message);

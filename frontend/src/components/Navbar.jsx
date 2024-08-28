@@ -21,7 +21,7 @@ function Navbar({ currentPage }) {
 const users=useSelector((state)=>state.users);
   const logouthandler = async () => {
     try {
-      const res = await axios.post('https://medi-connect-backend.onrender.com/api/users/logout');
+      const res = await axios.post('https://medi-connect-backend-beno.onrender.com/api/users/logout');
       if (res.data.success) {
         toast.success("Logout Successfully");
         dispatch(setisLoggedin(false));

@@ -13,7 +13,7 @@ const ProtectedRoute = ({ children }) => {
   const checkSession=async()=>{
     try{
 
-    const resp=await axios.get("https://medi-connect-backend.onrender.com/auth/isLoggedin");
+    const resp=await axios.get("https://medi-connect-backend-beno.onrender.com/auth/isLoggedin");
     
     if(resp.data.success==true){
       dispatch(setisLoggedin(true))

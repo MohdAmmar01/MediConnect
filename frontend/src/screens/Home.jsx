@@ -30,7 +30,7 @@ function Home() {
       try {
         setLoading(true);
 
-        const res = await axios.post('https://medi-connect-backend.onrender.com/api/appointments/create-appointment', {
+        const res = await axios.post('https://medi-connect-backend-beno.onrender.com/api/appointments/create-appointment', {
           doctorId: elem._id,
           slot: selectedSlot.value,
           patientId: users?.userdata?._id,
@@ -53,9 +53,9 @@ function Home() {
     try {
       let url;
       if (users?.userdata?.role === "doctor") {
-        url = 'https://medi-connect-backend.onrender.com/api/users/getAllPatients';
+        url = 'https://medi-connect-backend-beno.onrender.com/api/users/getAllPatients';
       } else {
-        url = 'https://medi-connect-backend.onrender.com/api/users/getAllDoctors';
+        url = 'https://medi-connect-backend-beno.onrender.com/api/users/getAllDoctors';
       }
       const res = await axios.get(url);
       setData(res.data.message);
