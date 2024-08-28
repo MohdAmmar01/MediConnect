@@ -1,0 +1,51 @@
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    background-color: #f5f5f5;
+  }
+  
+  .profile-container-body {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .profile-container-heading {
+    text-align: center;
+    padding: 20px;
+    color: #333;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .profile-container-heading h2 {
+    margin: 0;
+  }
+  
+  .profile-container-heading h3 {
+    margin: 5px 0 0;
+    font-weight: normal;
+  }
+  
+  .profile-container-content {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    font-size: 18px;
+    color: #333;
+  }
+  

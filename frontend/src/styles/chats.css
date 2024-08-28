@@ -1,0 +1,94 @@
+.chats-container {
+    width: 100%;
+    display: flex;
+  }
+  .chats-container-body{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  .chats-container-heading{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0px;
+  }
+  .chats-container h2{
+    color: #8c6df7;
+  }
+  .chats-container h3{
+    color: grey;
+    
+  }
+  .chats-container-body-doctors{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    row-gap: 10px;
+    place-items: center;
+  }
+  .chats-container-body-doctors-item{
+    width: 95%;
+    height: auto;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(225, 218, 218, 0.566)
+    ;
+  
+  }
+  .chats-container-body-doctors-part-1{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  }
+  .chats-container-body-doctors-part-1 h3{
+    margin: 5px 0px;
+    color: #240f6a;
+  }
+  .react-select{
+    margin: 10px 0px;
+  }
+  .chats-container-body-doctors-part-2 button{
+    width: 150px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    background-color: #8c6df7;
+  }
+  .chats-container-body-doctors-part-2 button:hover{
+    background-color: #240f6a;
+    color: white;
+  }
+  @media only screen and (max-width: 740px) {
+    .chats-container-heading h3{
+      font-size: 15px;
+    }
+    .home-container-body-doctors-item {
+     flex-direction: column;
+     align-items: flex-start;
+    }
+  }
+  @media only screen and (max-width: 604px) {
+    .chats-container-body-doctors-item{
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  @media only screen and (max-width: 545px) {
+    .chats-container-heading h3{
+      font-size: 10px;
+    }
+    .chats-container-heading h2{
+      font-size: 15px;
+    }
+  
+  }
+  

@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Radio Canada Big", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  
+}
+.react-select{
+  z-index: 2;
+}
+::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for WebKit browsers */
+}
