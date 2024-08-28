@@ -19,7 +19,7 @@ function MyAppointments() {
 
     try {
       setLoading(true)
-      const res = await axios.post('http://localhost:8000/api/appointments/getAppointmentsOfUser', { userId: users?.userdata?._id })
+      const res = await axios.post('https://medi-connect-backend.onrender.com/api/appointments/getAppointmentsOfUser', { userId: users?.userdata?._id })
       if (res.data.success) {
         setData(res.data.message)
         setLoading(false)

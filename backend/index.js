@@ -38,7 +38,7 @@ let users = [];
 
 const io = socketio(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin:  process.env.REACT_URL,
   }
 });
 

@@ -105,7 +105,8 @@ const authUser = asyncHandler(async (req, res) => {
     path: "/",
     expires: new Date(Date.now() + 1000 * 36000), // 10 hours
     httpOnly: true,
-    sameSite: "lax",
+    sameSite: "none",
+    secure:true
     // secure: process.env.NODE_ENV === "production" // Uncomment if using HTTPS
   });
 

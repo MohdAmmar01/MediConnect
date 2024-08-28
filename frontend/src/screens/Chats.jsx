@@ -21,9 +21,9 @@ function Chats() {
     try {
       let url;
       if (users?.userdata?.role === "doctor") {
-        url = 'http://localhost:8000/api/users/getAllPatients';
+        url = 'https://medi-connect-backend.onrender.com/api/users/getAllPatients';
       } else {
-        url = 'http://localhost:8000/api/users/getAllDoctors';
+        url = 'https://medi-connect-backend.onrender.com/api/users/getAllDoctors';
       }
       const res = await axios.get(url);
       setData(res.data.message);

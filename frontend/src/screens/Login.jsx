@@ -28,7 +28,7 @@ const LoginPage = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:8000/api/users/login', { email, password });
+      const response = await axios.post('https://medi-connect-backend.onrender.com/api/users/login', { email, password });
       if (response.data.success) {
         toast.success("Login Successful!", { position: 'top-center' });
         dispatch(setisLoggedin(true));

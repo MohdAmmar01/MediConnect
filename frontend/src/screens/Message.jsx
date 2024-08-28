@@ -27,7 +27,7 @@ function Message() {
   const [arrivalMessage, setArrivalMessage] = useState(null);
 
   useEffect(() => {
-    const socketInstance = io('http://localhost:8000');
+    const socketInstance = io('https://medi-connect-backend.onrender.com');
     setSocket(socketInstance);
 
     return () => socketInstance.disconnect();
@@ -38,8 +38,8 @@ function Message() {
       setLoading(true);
       try {
         const [messagesRes, userRes] = await Promise.all([
-          axios.post('http://localhost:8000/api/messages/getMessagesOfUser', { members: [users?.userdata?._id, id] }),
-          axios.post(`http://localhost:8000/api/users/getUserById`, { id }),
+          axios.post('https://medi-connect-backend.onrender.com/api/messages/getMessagesOfUser', { members: [users?.userdata?._id, id] }),
+          axios.post(`https://medi-connect-backend.onrender.com/api/users/getUserById`, { id }),
         ]);
         if (messagesRes.data.success) {
           setMessages(messagesRes.data.message);
@@ -85,7 +85,7 @@ function Message() {
   useEffect(() => {
     const checkChatPermission = async () => {
       try {
-        const response = await axios.post('http://localhost:8000/api/messages/canChat', {
+        const response = await axios.post('https://medi-connect-backend.onrender.com/api/messages/canChat', {
           userId: users?.userdata?.role === 'doctor' ? id : users?.userdata?._id,
           doctorId: users?.userdata?.role === 'doctor' ? users?.userdata?._id : id
         });
@@ -132,7 +132,7 @@ function Message() {
       }
 
 
-      const res = await axios.post('http://localhost:8000/api/messages/create-message', formData);
+      const res = await axios.post('https://medi-connect-backend.onrender.com/api/messages/create-message', formData);
       if (res.data.success == true) {
         fileUrl = res.data.message.file;
       }

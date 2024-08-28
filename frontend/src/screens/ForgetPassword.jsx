@@ -11,7 +11,7 @@ const ForgetPasswordPage = () => {
   const handleForgetPassword = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8000/api/users/forgetpassword', { email });
+      const response = await axios.post('https://medi-connect-backend.onrender.com/api/users/forgetpassword', { email });
       setMessage(response.data.message);
     } catch (error) {
       setMessage(error.response.data.message);
