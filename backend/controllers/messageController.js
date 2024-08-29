@@ -72,9 +72,7 @@ const canChat = async (req, res) => {
       return res.status(200).json({ success: false, message: "User ID and Doctor ID are required" });
     }
 
-    let  currentDate = new Date().toLocaleDateString().split('/'); // Use ISO format for consistency
-    let newDate = currentDate[1] + '/' + currentDate[0] + '/' + currentDate[2];
-    currentDate=newDate
+    let  currentDate = new Date().toLocaleDateString(); // Use ISO format for consistency
     const currentHour = new Date().getHours();
 
     let currentSlot;
