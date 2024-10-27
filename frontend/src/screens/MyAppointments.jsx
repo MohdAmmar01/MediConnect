@@ -7,7 +7,7 @@ import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { slots } from '../utils/data';
 import ProtectedRoute from '../components/PrivatePage';
-
+import loader from "../assets/loader/loader.gif";
 
 
 function MyAppointments() {
@@ -64,7 +64,7 @@ function MyAppointments() {
                     </div>
                   </div>
                 )
-              }) : <h1>Loading...</h1>
+              }) : <img src={loader} style={{ width: "50px", height: "50px" }} alt="loader" />
               }
             </div>
           </div>

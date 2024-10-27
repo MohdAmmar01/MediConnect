@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { slots } from '../utils/data';
 import moment from 'moment-timezone';
+import loader from "../assets/loader/loader.gif";
 
 function Home() {
   const [selectedSlot, setSelectedSlot] = useState(null);
@@ -84,7 +85,7 @@ function Home() {
           </div>
           <div className='home-container-body-doctors'>
             {loading ? (
-              <h1>Loading...</h1>
+              <img src={loader} style={{ width: "50px", height: "50px" }} alt="loader" />
             ) : data.length === 0 ? (
               <h3>{`No ${users?.userdata?.role === 'doctor' ? 'Patients' : 'Doctors'} Available`}</h3>
             ) : (

@@ -10,6 +10,7 @@ import toast from 'react-hot-toast';
 import axios from 'axios';
 import { io } from 'socket.io-client';
 import ProtectedRoute from '../components/PrivatePage';
+import loader from "../assets/loader/loader.gif";
 
 const allowedFileTypes = ['PDF', 'DOC', 'JPEG', 'PNG', 'JPG'];
 
@@ -170,7 +171,9 @@ function Message() {
       <div className="message-container">
         <Navbar currentPage="message" />
         <div className="message-container-body">
-          {loading ? <p>Loading...</p> : (
+          {loading ? 
+           <img src={loader} style={{ width: "50px", height: "50px" }} alt="loader" />
+          : (
             <>
               <div className="message-container-heading">
                 <h2>{`Chat With ${user?.name || 'User'}`}</h2>

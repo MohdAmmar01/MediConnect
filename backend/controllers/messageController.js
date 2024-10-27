@@ -105,7 +105,7 @@ const canChat = async (req, res) => {
     console.error('Error in canChat:', e.message); // Log the error for debugging
     res.status(500).json({ success: false, message: "An error occurred while checking chat permission", error: e.message });
   }
-};
+};  
 
 module.exports = {
   createMessage,
