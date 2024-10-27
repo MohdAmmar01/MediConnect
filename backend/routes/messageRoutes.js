@@ -11,7 +11,6 @@ const storage = multer.diskStorage({
     cb(null, 'public/files')
   },
   filename: function (req, file, cb) {
-    console.log(`${req.user._id}${new Date().getHours()}${file.originalname.replace(/\s+/g, '_').toLowerCase()}`)
     cb(null, `${req.user._id}${new Date().getHours()}${file.originalname}`)
   }
 })
