@@ -8,7 +8,7 @@ import toast from 'react-hot-toast';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { slots } from '../utils/data';
-
+import moment from 'moment-timezone';
 
 function Home() {
   const [selectedSlot, setSelectedSlot] = useState(null);
@@ -25,16 +25,19 @@ function Home() {
   const createAppointmentHandler = async (elem) => {
     if (!selectedSlot || !elem) {
       toast.error("Please Select Slot", { position: 'top-center' });
-      return
+      return;
     } else {
       try {
         setLoading(true);
+
+        // Format date in Asia/Kolkata timezone
+        const appointmentDate = moment().tz("Asia/Kolkata").format("MM/DD/YYYY");
 
         const res = await axios.post('https://medi-connect-backend-beno.onrender.com/api/appointments/create-appointment', {
           doctorId: elem._id,
           slot: selectedSlot.value,
           patientId: users?.userdata?._id,
-          date: new Date().toLocaleDateString()
+          date: appointmentDate
         });
         if (res.data.success) {
           toast.success("Appointment Booked Successfully", { position: 'top-center' });
@@ -83,7 +86,7 @@ function Home() {
             {loading ? (
               <h1>Loading...</h1>
             ) : data.length === 0 ? (
-              <h3>{`No ${users?.userdata?.role == 'doctor' ? 'Patients' : 'Doctors'} Available`}</h3>
+              <h3>{`No ${users?.userdata?.role === 'doctor' ? 'Patients' : 'Doctors'} Available`}</h3>
             ) : (
               data.map((elem, ind) => (
                 <div key={ind} className='home-container-body-doctors-item'>

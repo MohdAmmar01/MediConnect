@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const Message = require('../models/message');
 const Appointment = require('../models/appointment'); // Assuming your schema is in this file
-
+const moment = require('moment-timezone');
 // Create message
 const createMessage = async (req, res) => {
   try {
@@ -67,13 +67,16 @@ const getMessagesOfUser = async (req, res) => {
 const canChat = async (req, res) => {
   try {
     const { userId, doctorId } = req.body;
-   
+
     if (!userId || !doctorId) {
       return res.status(200).json({ success: false, message: "User ID and Doctor ID are required" });
     }
 
-    let  currentDate = new Date().toLocaleDateString(); // Use ISO format for consistency
-    const currentHour = new Date().getHours();
+    // Get current date and time in 'Asia/Kolkata' timezone
+    const currentDateTime = moment.tz("Asia/Kolkata");
+    const currentDate = currentDateTime.format("MM/DD/YYYY"); // Format to match your date format
+
+    const currentHour = currentDateTime.hour(); // Get the hour part in 'Asia/Kolkata' timezone
 
     let currentSlot;
     if (currentHour >= 9 && currentHour < 16) {
@@ -90,7 +93,7 @@ const canChat = async (req, res) => {
       patientId: userId,
       doctorId: doctorId,
       date: currentDate,
-      slot: currentSlot
+      slot: currentSlot,
     });
 
     if (activeAppointment) {
