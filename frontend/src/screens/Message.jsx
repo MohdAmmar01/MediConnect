@@ -172,7 +172,7 @@ function Message() {
         <Navbar currentPage="message" />
         <div className="message-container-body">
           {loading ? 
-           <img src={loader} style={{ width: "50px", height: "50px" }} alt="loader" />
+           <img src={loader} style={{ width: "50px",margin:"auto", height: "50px" }} alt="loader" />
           : (
             <>
               <div className="message-container-heading">
